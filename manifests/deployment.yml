@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: newgrafana 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: newgrafana
+  template:
+    metadata:
+      labels:
+        app: newgrafana 
+    spec:
+      containers:
+        - name: newgrafana 
+          image: dockeraz.azurecr.io/newgrafana
+          ports:
+          - containerPort: 3000
